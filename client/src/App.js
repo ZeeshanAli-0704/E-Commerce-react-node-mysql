@@ -4,7 +4,7 @@ import LoginRegisterForm from "./components/LoginRegisterContainer/LoginRegister
 import AdminCustomerContainer from "./components/AdminCustomerContainer/AdminCustomerContainer";
 
 function App() {
-  let [isUserAuthenticated, setUserAuthorizarion] = useState(
+  let [isUserAuthenticated, setUserAuthorization] = useState(
     sessionStorage.getItem("isUserAuthenticated") === "true" || false
   );
   let [isAdmin, setAdmin] = useState(
@@ -12,19 +12,31 @@ function App() {
   );
   let [customerId, setCustomerId] = useState(
     sessionStorage.getItem("customerId") || undefined
-  ); 
+  );
 
   const setUserAuthenticatedStatus = (isAdmin, customerId) => {
-    setUserAuthorizarion(true);
+    setUserAuthorization(true);
     setAdmin(isAdmin);
     setCustomerId(customerId);
+  };
+  const handleLogout = () => {
+    sessionStorage.removeItem("isUserAuthenticated");
+    sessionStorage.removeItem("isAdmin");
+    sessionStorage.removeItem("customerId");
+    setUserAuthorization(false);
+    setAdmin(false);
+    setCustomerId(undefined);
   };
   return (
     <div >
       {!isUserAuthenticated ? (
         <LoginRegisterForm setUserAuthenticatedStatus={setUserAuthenticatedStatus} />
       ) : (
-        <AdminCustomerContainer isAdmin={isAdmin} customerId={customerId}/>
+        <>
+          <button onClick={handleLogout}>Logout</button>
+          <AdminCustomerContainer isAdmin={isAdmin} customerId={customerId} />
+        </>
+
       )}
     </div>
   );

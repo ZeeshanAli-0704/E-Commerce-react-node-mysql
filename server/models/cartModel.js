@@ -5,7 +5,7 @@ const pool = require("../database/connection");
 exports.getShoppingCart = (userId) => {
     return new Promise((resolve, reject) => {
         pool.query(
-            "SELECT S.quantity, P.name, P.price, P.productId FROM shopingcart S INNER JOIN product P ON S.productId = P.productId WHERE S.userId = ?",
+            "SELECT S.quantity, P.name, P.price, P.productId FROM shopingCart S INNER JOIN product P ON S.productId = P.productId WHERE S.userId = ?",
             [userId],
             (err, result) => {
                 if (err) {
@@ -22,7 +22,7 @@ exports.addToCart = (customerId, productId, quantity, isPresent) => {
     return new Promise((resolve, reject) => {
         if (isPresent) {
             pool.query(
-                "UPDATE shopingcart SET quantity = quantity + ? WHERE productId = ? AND userId = ?",
+                "UPDATE shopingCart SET quantity = quantity + ? WHERE productId = ? AND userId = ?",
                 [quantity, productId, customerId],
                 (err, result) => {
                     if (err) {
@@ -34,7 +34,7 @@ exports.addToCart = (customerId, productId, quantity, isPresent) => {
             );
         } else {
             pool.query(
-                "INSERT INTO shopingcart (userId, productId, quantity) VALUES (?, ?, ?)",
+                "INSERT INTO shopingCart (userId, productId, quantity) VALUES (?, ?, ?)",
                 [customerId, productId, quantity],
                 (err, result) => {
                     if (err) {
@@ -51,7 +51,7 @@ exports.addToCart = (customerId, productId, quantity, isPresent) => {
 exports.removeFromCart = (productId, userId) => {
     return new Promise((resolve, reject) => {
         pool.query(
-            "DELETE FROM shopingcart WHERE productId = ? AND userId = ?",
+            "DELETE FROM shopingCart WHERE productId = ? AND userId = ?",
             [productId, userId],
             (err, result) => {
                 if (err) {
@@ -78,7 +78,7 @@ exports.buy = (customerId, address) => {
                     pool.query(
                         "INSERT INTO productsinorder (orderId, productId, quantity, totalPrice) " +
                         "SELECT (SELECT max(orderId) FROM orders WHERE userId = ?), S.productId, S.quantity, P.price * S.quantity " +
-                        "FROM shopingcart S INNER JOIN product P ON S.productId = P.productId " +
+                        "FROM shopingCart S INNER JOIN product P ON S.productId = P.productId " +
                         "WHERE S.userId = ?;",
                         [customerId, customerId],
                         (err, productsResult) => {
@@ -100,7 +100,7 @@ exports.buy = (customerId, address) => {
                                         } else {
                                             // Clear shopping cart
                                             pool.query(
-                                                "DELETE FROM shopingcart WHERE userId = ?;",
+                                                "DELETE FROM shopingCart WHERE userId = ?;",
                                                 customerId,
                                                 (err, clearCartResult) => {
                                                     if (err) {
