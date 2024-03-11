@@ -15,6 +15,7 @@ const OrdersByProductId = (props) => {
         setOrderListByProductId(res.data);
       })
       .catch((err) => console.log("Error found"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

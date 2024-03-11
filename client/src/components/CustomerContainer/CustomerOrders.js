@@ -16,6 +16,7 @@ const CustomerOrders = (props) => {
       .catch((err) => {
         console.log("error");
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

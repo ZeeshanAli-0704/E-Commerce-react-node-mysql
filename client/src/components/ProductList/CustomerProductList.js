@@ -26,6 +26,7 @@ const ProductListCustomer = (props) => {
           .catch((err) => console.log("Error occurred"));
       })
       .catch((err) => console.log("Error"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addToCart = (product) => {
@@ -69,7 +70,7 @@ const ProductListCustomer = (props) => {
       .then((res) => {
         console.log("Deleted successfully");
         let updatedCartList = cartProducts.filter((product) => {
-          return product.productId != productId;
+          return product.productId !== productId;
         });
         setCartProducts(updatedCartList);
       })
@@ -80,7 +81,7 @@ const ProductListCustomer = (props) => {
 
   const updateProductQuantity = (e, productId) => {
     const updatedList = productList.map((product) => {
-      if (product.productId == productId) {
+      if (product.productId === productId) {
         product.quantity = parseInt(e.target.value);
       }
       return product;
@@ -89,7 +90,7 @@ const ProductListCustomer = (props) => {
   };
 
   const buyProducts = () => {
-    if (address != "") {
+    if (address !== "") {
       let customerPayload = { address };
       axios
         .post(`${getBaseURL()}api/cart/buy/${customerId}`, { ...customerPayload })

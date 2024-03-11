@@ -22,6 +22,7 @@ const OrderDetails = (props) => {
         setProductsInOrder(res.data);
       })
       .catch((err) => console.log("Error"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleBackClick = () => {

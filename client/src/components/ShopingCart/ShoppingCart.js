@@ -15,6 +15,7 @@ const ShoppingCart = (props) => {
         setCartProducts(productsInCart);
       })
       .catch((err) => console.log("Error occurred"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.cartProducts]);
 
   const buyProducts = () => {

@@ -5,7 +5,7 @@ import { getBaseURL } from "../apiConfig"; // Import the getBaseURL function
 import "./AdminProductDetails.scss";
 
 const ProductDetails = (props) => {
-  const [id, setId] = useState(props.productId);
+  // const [id, setId] = useState(props.productId);
   const [productDetails, setProductDetails] = useState(true);
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState(0);
@@ -13,7 +13,7 @@ const ProductDetails = (props) => {
 
   useEffect(() => {
     axios
-      .get(`${getBaseURL()}api/products/${id}`) // Use the common base URL
+      .get(`${getBaseURL()}api/products/${props.productId}`) // Use the common base URL
       .then((res) => {
         let data = res.data;
         setProductName(data[0].name);
@@ -25,11 +25,12 @@ const ProductDetails = (props) => {
         console.log("Sorry couldn't fetch details");
         setProductDetails(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const saveProduct = () => {
     const productData = {
-      id: id,
+      id: props.productId,
       name: productName,
       price: productPrice,
       description: productDesc,
@@ -54,7 +55,7 @@ const ProductDetails = (props) => {
         <>
           <input
             type="text"
-            value={id}
+            value={props.productId}
             disabled
             placeholder="Product Id"
           ></input>
@@ -86,7 +87,7 @@ const ProductDetails = (props) => {
         </>
       ) : null}
 
-      <OrdersByProductId productId={id} />
+      <OrdersByProductId productId={props.productId} />
     </div>
   );
 };
