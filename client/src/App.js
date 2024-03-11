@@ -33,7 +33,21 @@ function App() {
         <LoginRegisterForm setUserAuthenticatedStatus={setUserAuthenticatedStatus} />
       ) : (
         <>
-          <button onClick={handleLogout}>Logout</button>
+            <div className="login-button-container"><button
+              onClick={handleLogout}
+              // style={{
+              //   backgroundColor: 'black',
+              //   color: 'white',
+              //   border: 'none',
+              //   padding: '10px 20px',
+              //   borderRadius: '5px',
+              //   cursor: 'pointer'
+              // }}
+              className="login-button"
+            >
+              Logout
+            </button></div>
+
           <AdminCustomerContainer isAdmin={isAdmin} customerId={customerId} />
         </>
 

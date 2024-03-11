@@ -40,7 +40,7 @@ exports.getProductsByOrder = (orderId) => {
     return new Promise((resolve, reject) => {
         pool.query(
             "SELECT P2.productId, P2.name, P.quantity, P.totalPrice " +
-            "FROM orders O INNER JOIN productsinorder P ON O.orderId = P.orderId " +
+            "FROM orders O INNER JOIN productsInOrder P ON O.orderId = P.orderId " +
             "INNER JOIN product P2 ON P.productId = P2.productId " +
             "WHERE O.orderId = ?;",
             [orderId],
@@ -75,8 +75,8 @@ exports.updateOrder = (orderId, newData) => {
 exports.getPastOrdersByCustomerID = (orderId) => {
     const query =
         "SELECT O.orderId, P.name, O.createdDate, PIN.quantity, PIN.totalPrice " +
-        "FROM orders O INNER JOIN productsinorder PIN ON O.orderId = PIN.orderId  " +
-        "INNER JOIN Product P ON PIN.productId = P.productId " +
+        "FROM orders O INNER JOIN productsInOrder PIN ON O.orderId = PIN.orderId  " +
+        "INNER JOIN product P ON PIN.productId = P.productId " +
         "WHERE O.userId = ? " +
         "ORDER BY O.orderID DESC;";
     return new Promise((resolve, reject) => {

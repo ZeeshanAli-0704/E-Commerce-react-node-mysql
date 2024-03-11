@@ -76,7 +76,7 @@ exports.buy = (customerId, address) => {
                 } else {
                     // Move items from shopping cart to products in order
                     pool.query(
-                        "INSERT INTO productsinorder (orderId, productId, quantity, totalPrice) " +
+                        "INSERT INTO productsInOrder (orderId, productId, quantity, totalPrice) " +
                         "SELECT (SELECT max(orderId) FROM orders WHERE userId = ?), S.productId, S.quantity, P.price * S.quantity " +
                         "FROM shopingCart S INNER JOIN product P ON S.productId = P.productId " +
                         "WHERE S.userId = ?;",
@@ -89,7 +89,7 @@ exports.buy = (customerId, address) => {
                                 pool.query(
                                     "UPDATE orders O " +
                                     "SET totalPrice = (SELECT SUM(P.totalPrice) " +
-                                    "FROM productsinorder P " +
+                                    "FROM productsInOrder P " +
                                     "WHERE O.orderId = P.orderId " +
                                     "GROUP BY O.orderId) " +
                                     "WHERE userId = ? AND totalPrice IS NULL;",
