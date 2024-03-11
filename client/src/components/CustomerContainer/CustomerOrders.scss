@@ -1,0 +1,31 @@
+.customer-orders-container {
+    margin-top: 20px;
+}
+
+.customer-orders-container div {
+    margin-bottom: 10px;
+}
+
+.customer-orders-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customer-orders-container th,
+.customer-orders-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.customer-orders-container th {
+    background-color: #f2f2f2;
+}
+
+.customer-orders-container tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.customer-orders-container tbody tr:hover {
+    background-color: #ddd;
+}

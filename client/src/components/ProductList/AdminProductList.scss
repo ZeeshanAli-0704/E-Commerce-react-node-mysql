@@ -1,0 +1,72 @@
+/* AdminProductList.scss */
+
+.product-list-container {
+    // max-width: 800px;
+    // margin: 0 auto;
+    // padding: 20px;
+}
+
+.add-product-section {
+    margin-bottom: 20px;
+}
+
+.add-product-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-product-section input {
+    width: calc(100% - 10px);
+    /* Adjust width as needed */
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.add-product-section button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-product-section button:hover {
+    background-color: #45a049;
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list th,
+.product-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.product-list th {
+    background-color: #f2f2f2;
+}
+
+.product-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.product-list tr:hover {
+    background-color: #ddd;
+}
+
+.product-list button {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.product-list button:hover {
+    background-color: #d32f2f;
+}

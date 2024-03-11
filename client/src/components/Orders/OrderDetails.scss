@@ -1,0 +1,77 @@
+// OrderDetails.scss
+
+.order-details-container {
+    padding: 20px;
+
+    div {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        color: #333;
+        cursor: not-allowed;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    }
+
+        /* OrderDetails.scss */
+    
+        .back-button-container {
+            margin-bottom: 20px;
+            /* Adjust margin as needed */
+        }
+    
+        .back-button-container button {
+            background-color: #007bff;
+            /* Button background color */
+            color: #fff;
+            /* Button text color */
+            border: none;
+            /* Remove button border */
+            padding: 10px 20px;
+            /* Add padding to button */
+            cursor: pointer;
+            /* Change cursor to pointer on hover */
+            border-radius: 5px;
+            /* Add border-radius to button */
+        }
+    
+        .back-button-container button:hover {
+            background-color: #0056b3;
+            /* Change background color on hover */
+        }
+}

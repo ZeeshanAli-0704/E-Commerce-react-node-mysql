@@ -1,0 +1,62 @@
+.shopping-cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.shopping-cart-table th,
+.shopping-cart-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.shopping-cart-table th {
+    background-color: #f2f2f2;
+}
+
+.shopping-cart-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.shopping-cart-table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.shopping-cart-table td button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.shopping-cart-table td button:hover {
+    background-color: #d32f2f;
+}
+
+.address-container {
+    display: flex;
+    align-items: center;
+    padding-top:10px;
+}
+
+.address-input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buy-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.buy-button:hover {
+    background-color: #45a049;
+}

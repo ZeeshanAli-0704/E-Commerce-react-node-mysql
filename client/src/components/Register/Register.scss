@@ -1,0 +1,70 @@
+// Register.scss
+
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #218838;
+        }
+    }
+
+    .login-link {
+        text-align: center;
+        margin-top: 10px;
+        color: #007bff;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #0056b3;
+        }
+    }
+
+    .radio-group{
+        display: flex
+    }
+}

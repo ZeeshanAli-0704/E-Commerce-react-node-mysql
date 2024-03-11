@@ -1,0 +1,47 @@
+/* ProductListCustomer.css */
+
+.product-list-container {
+    // margin: 20px;
+}
+
+.product-list-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.product-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list-container th,
+.product-list-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.product-list-container th {
+    background-color: #f2f2f2;
+}
+
+.product-list-container input[type="number"] {
+    width: 60px;
+    padding: 5px;
+}
+
+.product-list-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.product-list-container button:hover {
+    background-color: #45a049;
+}
+
+.shopping-cart-container {
+    margin-top: 20px;
+}
