@@ -31,6 +31,10 @@ Installation
 
     npm install
 
+    npm run start
+
+    npm run debug  // if you want to start node js in debug mode
+
 
 - make sure you have correct env file configured
 
@@ -42,9 +46,24 @@ Installation
 
     npm install
 
+    npm run start
+
 - make sure you have correct env file configured
 
 - If facing any issue in installing packages try & delete package-lock.json filre & try again
+
+
+### Database  Setup:
+
+We are using Mysql in this project.
+
+In database folder we have createTables.sql use this file to create table in MySQL.
+
+
+
+
+
+
 
 
 
