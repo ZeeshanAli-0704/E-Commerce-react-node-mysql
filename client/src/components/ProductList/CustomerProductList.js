@@ -88,21 +88,48 @@ const ProductListCustomer = (props) => {
     });
     setProductList(updatedList);
   };
-
   const buyProducts = () => {
+    // Retrieve JWT token from session storage
+    const token = sessionStorage.getItem('jwt_token');
+
+    if (!token) {
+      // Handle case where token is not available
+      alert("Authorization token is missing");
+      return;
+    }
+
     if (address !== "") {
       let customerPayload = { address };
+
+      // Include JWT token in the headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+
       axios
-        .post(`${getBaseURL()}api/cart/buy/${customerId}`, { ...customerPayload })
+        .post(`${getBaseURL()}api/cart/buy/${customerId}`, { ...customerPayload }, config)
         .then((res) => {
           setCartProducts([]);
           setAddress("");
-          alert("order placed successfully");
+          alert("Order placed successfully");
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 401) {
+            // Unauthorized - token might be expired or invalid
+            alert("Authorization failed. Please log in again.");
+            // Handle logout or redirect to login page
+          } else {
+            // Other error handling
+            console.error("Error:", error);
+          }
         });
     } else {
       alert("Please enter your address");
     }
   };
+
 
   const updateAddress = (updatedAddress) => {
     setAddress(updatedAddress);

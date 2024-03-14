@@ -9,17 +9,19 @@ function Register(props) {
   let [lname, setLname] = useState("");
   let [pass, setPass] = useState("");
   const [isAdmin, setAdmin] = useState("0");
+  const [error, setError] = useState("");
 
-  const handleUserRegisteration = () => {
-    const newUser = {
-      email: email,
-      password: pass,
-      isAdmin: isAdmin,
-      fname: fname,
-      lname: lname,
-    };
-    if (email !== "" && pass !== "" && fname !== "" && lname !== "") {
-      let url = `${getBaseURL()}api/users/register`
+  const handleUserRegistration = () => {
+    if (validateInputs()) {
+      const newUser = {
+        email: email,
+        password: pass,
+        isAdmin: isAdmin,
+        fname: fname,
+        lname: lname,
+      };
+
+      let url = `${getBaseURL()}api/users/register`;
       axios
         .post(url, { ...newUser })
         .then((res) => {
@@ -29,13 +31,37 @@ function Register(props) {
           }
         })
         .catch((err) => console.log("Sorry unable to add new user"));
-    } else {
-      console.log("Please fill the required fields");
     }
   };
 
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 6;
+  };
+
+  const validateInputs = () => {
+    if (!validateEmail(email)) {
+      setError("Please provide a valid email address.");
+      return false;
+    } else if (fname.trim() === "") {
+      setError("Please provide your first name.");
+      return false;
+    } else if (lname.trim() === "") {
+      setError("Please provide your last name.");
+      return false;
+    } else if (!validatePassword(pass)) {
+      setError("Password must be at least 6 characters long.");
+      return false;
+    }
+    setError("");
+    return true;
+  };
+
   const updateAdmin = (adminValue) => {
-    console.log(adminValue);
     setAdmin(adminValue);
   };
 
@@ -59,7 +85,7 @@ function Register(props) {
         ></input>
       </div>
       <div>
-        <label>Surname</label>
+        <label>Last Name</label>
         <input
           type="text"
           value={lname}
@@ -74,6 +100,7 @@ function Register(props) {
           onChange={(e) => setPass(e.target.value)}
         ></input>
       </div>
+      {error && <div className="error-message">{error}</div>}
       <div className="radio-group">
         <input
           type="radio"
@@ -85,8 +112,6 @@ function Register(props) {
         />
         <label htmlFor="customer">Customer</label>
         <br />
-      </div>
-      <div className="radio-group">
         <input
           type="radio"
           id="admin"
@@ -96,10 +121,9 @@ function Register(props) {
           onChange={() => updateAdmin("1")}
         />
         <label htmlFor="admin">Admin</label>
-        <br />
       </div>
       <div>
-        <button onClick={handleUserRegisteration}>Register</button>
+        <button onClick={handleUserRegistration}>Register</button>
       </div>
       <div className="login-link" onClick={() => props.navigateToLoginPage()}>
         Already Logged In User

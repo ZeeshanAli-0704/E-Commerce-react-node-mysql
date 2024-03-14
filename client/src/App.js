@@ -23,6 +23,8 @@ function App() {
     sessionStorage.removeItem("isUserAuthenticated");
     sessionStorage.removeItem("isAdmin");
     sessionStorage.removeItem("customerId");
+    sessionStorage.removeItem("jwt_token");
+    sessionStorage.removeItem("jwt_refresh_token");
     setUserAuthorization(false);
     setAdmin(false);
     setCustomerId(undefined);

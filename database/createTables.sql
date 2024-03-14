@@ -3,7 +3,7 @@ CREATE TABLE users (
     fname VARCHAR(30) NOT NULL,
 	lname VARCHAR(30) NOT NULL,
 	email VARCHAR(50),
-    password CHAR,
+    password VARCHAR(200),
     isAdmin BOOL,
     createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
