@@ -27,4 +27,24 @@ Installation
 
 ### Server Setup: 
 
-    * cd server
+    cd server
+
+    npm install
+
+
+- make sure you have correct env file configured
+
+- If facing any issue in installing packages try & delete package-lock.json filre & try again
+
+### Client Setup: 
+
+    cd client/
+
+    npm install
+
+- make sure you have correct env file configured
+
+- If facing any issue in installing packages try & delete package-lock.json filre & try again
+
+
+
