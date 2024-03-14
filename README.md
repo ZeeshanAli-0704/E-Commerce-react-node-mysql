@@ -59,6 +59,7 @@ We are using Mysql in this project.
 
 In database folder we have createTables.sql use this file to create table in MySQL.
 
+If facing any issue with DB connection check connection.js for configuration 
 
 
 
