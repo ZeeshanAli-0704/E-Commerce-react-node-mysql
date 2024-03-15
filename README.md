@@ -21,7 +21,8 @@ This project is an E-commerce platform designed to provide users with a convenie
 ## Getting Started
 Installation
 
-Deployed Application:
+## Deployed Application:
+
 Deployed on Netlify & Render..  
 
 [E-commerce](https://ecommerce-zee.netlify.app/)
