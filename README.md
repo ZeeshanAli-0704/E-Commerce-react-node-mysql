@@ -21,6 +21,13 @@ This project is an E-commerce platform designed to provide users with a convenie
 ## Getting Started
 Installation
 
+Deployed Application:
+Deployed on Netlify & Render..  
+
+    https://ecommerce-zee.netlify.app/
+
+Please Note: Application will take some time to boot up 
+
 ### Clone the repository:
 
     git clone https://github.com/ZeeshanAli-0704/E-Commerce-react-node-mysql.git
