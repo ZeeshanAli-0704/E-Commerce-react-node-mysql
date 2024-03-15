@@ -24,7 +24,7 @@ Installation
 Deployed Application:
 Deployed on Netlify & Render..  
 
-    https://ecommerce-zee.netlify.app/
+[https://ecommerce-zee.netlify.app/](E-commerce)
 
 Please Note: Application will take some time to boot up 
 
