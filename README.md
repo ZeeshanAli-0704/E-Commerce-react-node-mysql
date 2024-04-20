@@ -25,7 +25,7 @@ Installation
 
 Deployed on Netlify & Render..  
 
-[E-commerce](https://ecommerce-zee.netlify.app/)
+[E-commerce](https://ecommerce-react-mysql.netlify.app/)
 
 Please Note: Application will take some time to boot up 
 
